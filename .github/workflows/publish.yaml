@@ -33,9 +33,10 @@ jobs:
             runner: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
-      - name: Free space for CUDA image and model
+      - name: Free space for CUDA image and model (45s budget)
         run: |
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache
+          # Best effort: avoid spending minutes removing cached toolchains.
+          timeout 45s sudo rm -rf /usr/share/dotnet /usr/local/lib/android || true
           df -h /
       - name: Image name
         id: image
