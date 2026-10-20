@@ -5,7 +5,7 @@ functions:
       cpu: '2.0'
       enable_gpu: true
       memory: 10Gi
-      image: ghcr.io/micrusa/vllm-llama-arm64:latest
+      image: ghcr.io/micrusa/oscar-vllm-llama-arm64:latest
       script: script.sh
       environment:
         variables:

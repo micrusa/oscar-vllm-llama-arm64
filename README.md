@@ -17,7 +17,7 @@ Native ARM runners must be available for the repository's GitHub plan. CUDA base
 
 ## Deploy to OSCAR
 
-`script.sh` is copied unchanged from upstream. `fdl.yaml` is upstream's `fdl.yml`, renamed and updated to use `ghcr.io/micrusa/vllm-llama-arm64:latest`. If hosted under another owner/repository, update its `image` field. Set the `oscar-cluster` alias and replace the example `API_KEY: "secretkey"` before deployment.
+`script.sh` is copied unchanged from upstream. `fdl.yaml` is upstream's `fdl.yml`, renamed and updated to use `ghcr.io/micrusa/oscar-vllm-llama-arm64:latest`. If hosted under another owner/repository, update its `image` field. Set the `oscar-cluster` alias and replace the example `API_KEY: "secretkey"` before deployment.
 
 ```bash
 oscar-cli apply fdl.yaml
@@ -44,7 +44,7 @@ Run on an NVIDIA GPU host (the default command selects the bundled model):
 
 ```bash
 docker run --rm --gpus all --ipc=host -p 8000:8000 \
-  ghcr.io/micrusa/vllm-llama-arm64:latest
+  ghcr.io/micrusa/oscar-vllm-llama-arm64:latest
 ```
 
 OSCAR uses the separately provided script. For direct Docker usage, arguments after the image replace the defaults passed to the inherited `vllm serve` entrypoint; include the model name and revision when overriding them.
